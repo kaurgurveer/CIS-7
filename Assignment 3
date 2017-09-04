@@ -1,1 +1,78 @@
+35. 
+A =  x< 5.0
+B = 2x < 10.7
+C = (5x)^(1/2) > 5.1
+
+(A ^ B) v C
+
+x = 1.0
+A: True  
+B: True 
+A ^ B: True 
+C: False
+(A ^ B) v C: True
+
+ x = 5.1
+A: False  
+B: True 
+A ^ B: False
+C: False
+(A ^ B) v C: False
+
+x = 2.4
+A: True  
+B: True 
+A ^ B: True
+C: False
+(A ^ B) v C: True
+
+x = 7.2
+A: False
+B: False 
+A ^ B: False
+C: True
+(A ^ B) v C: True
+
+x = 5.3
+A: False  
+B: True 
+A ^ B: False
+C: True
+(A ^ B) v C: True
+
+The output values are 1.0, 2.4, 7.2, and 5.3.
+
+37. 
+A = Value1 < Value2
+B = odd(Number)
+(A v B)’ v (A’ ^ B)
+
+(A’ ^ B’) v (A’ ^ B)
+
+(A’ v A’) ^ (A’ v B) ^ (B’ v A’) ^ (B’ v B) 
+
+(A’ v B) and (B’ v A’) are not tautologies
+
+A’ ^ (B’ v B)
+
+A’ ^ 1
+
+A’
+
+if not (Value1 < Value2) then 
+statement 1
+else 
+statement 2
+end
+
+38. 
+The program does what we want because (A ^ B)’ ^ C gives us true which causes statement one to be executed. 
+
+61. Percival is a truth teller and Llewellyn is a liar because Percival says at least one of them is a liar, which is a true statement. If the statement were false that would mean Percival is lying but then the statement implies that both must be truth tellers or liars, which cannot happen. 
+
+62. Meredith and Merlin are both truth tellers because Merlin implies Meredith being a truth teller, which is why Meredith is a truth teller. Merlin is a truth teller because even if Merlin were a liar, the implication would still be true, so the statement would be true and false at the same time, which cannot happen.
+
+63. Rothwold and Grymlin are both truth tellers. If Rothwold were a liar, then his statement would be false but the statement involves or, so if one of the statements were true then the whole statement would be true. Since the statement cannot be true and false, then Rothwold cannot be a liar, which means that Grymlin is also a truth teller since Rothwold is telling the truth. 
+
+64. Gwendolyn is a liar and Merrilaine is a truth teller. If Gwendolyn was telling the truth then according to the statement, he is a liar, which would make the statement true since the statement takes the form A ^ B’. If Gwendolyn is telling the truth then Merrilaine is not a liar. 
 
