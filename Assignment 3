@@ -47,15 +47,15 @@ A = Value1 < Value2
 B = odd(Number)
 (A v B)’ v (A’ ^ B)
 
-(A’ ^ B’) v (A’ ^ B)
+(A’ ^ B’) v (A’ ^ B)  De Morgan's laws
 
-(A’ v A’) ^ (A’ v B) ^ (B’ v A’) ^ (B’ v B) 
+(A’ v A’) ^ (A’ v B) ^ (B’ v A’) ^ (B’ v B) distributive property
 
 (A’ v B) and (B’ v A’) are not tautologies
 
-A’ ^ (B’ v B)
+A’ ^ (B’ v B) Commutative property
 
-A’ ^ 1
+A’ ^ 1  identity property
 
 A’
 
