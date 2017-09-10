@@ -1,0 +1,17 @@
+1.	p -> q <=> q’ -> p’
+p -> q <=> (q’)’ v p’    (implication)
+p -> q <=> q v p’          (double negation)
+p -> q <=> p’ v q          (commutative)
+p -> q <=> p -> q          (implication)
+
+2.	(p->r) ^ (q->r) <=> (p v q) -> r
+(p->r) ^ (q->r) <=> (p v q)’ v r     (implication)
+(p->r) ^ (q->r) <=> (p’ ^ q’) v r    (De Morgan’s laws)
+(p->r) ^ (q->r) <=> r v (p’ ^ q’)    (Commutative)
+(p->r) ^ (q->r) <=> (r v p’) ^ (r v q’)      (distributive)
+(p->r) ^ (q->r) <=> (p’ v r) ^ (q’ v r)      (commutative)
+(p->r) ^ (q->r) <=> (p -> r) ^ (q -> r)     (implication)
+
+3.	(p ^ q)’ -> r’ <=> (r -> p) ^ (r -> q)
+
+4.	p ^ (p v q) -> (p ^ q)’ <=> (p ^ q)’
