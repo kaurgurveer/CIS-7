@@ -1,0 +1,23 @@
+18. 
+a. ∀x(S(x) -> I(x))
+b. ∃x((S(x) ^ I(x) ^M(x))
+c.  ∀x(M(x) -> S(x) ^(I(x))’)
+d. ∀x(M(x) -> S(x) ^ I(x))
+
+25. 
+a. John is handsome and Kathy loves John.
+b. All men are handsome. 
+c. All women love all men who are handsome.
+d. Some men are handsome and love Kathy. 
+e. Some women are pretty and love all men who are handsome. 
+f. John loves all women who are pretty. 
+
+34. 
+a. A(x) = x is even B(x) = x is odd
+The wff is not vaild because a number cannot be odd and even at the same time.
+b. P(x,y) = x + y = 0
+The wff would not be valid because one single x will not equal 0 when add with every y integer. 
+c. P(x) = x > 30 Q(x) = x > 3
+The wff would not be valid because there is a number greater than 30 but not all numbers are greater than 3.
+d. A(x) = x is odd
+The wff would not be valid because every number is odd would be a false statement.
