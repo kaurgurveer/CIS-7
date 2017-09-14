@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Assignment6 {
+
+	public static void main(String[] args) {
+		int num1 = 0;
+		char letter = 'r';
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter an intger: ");
+		num1 = scan.nextInt();
+		
+		while (letter != 'q')
+		{	
+			if (num1 % 2 == 0)
+			{
+				System.out.println("Even");
+			}
+			else
+			{
+				System.out.println("Odd");
+			} 
+			
+			System.out.println("\nIf you want to quit enter q or n to continue");
+			letter = scan.next().charAt(0);
+			
+			if (letter == 'n')
+			{
+				System.out.println("\nEnter an intger: ");
+				num1 = scan.nextInt();
+			}
+		}
+	}
+}
