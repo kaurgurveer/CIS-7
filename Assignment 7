@@ -1,0 +1,38 @@
+1.	Exhaustive Proof
+n = 25, 100, or 169
+(5)(5) = 25 
+(3)(3) + (4)(4) = 25
+(10)(10) = 100
+(6)(6) + (8)(8) = 100
+(13)(13) = 169
+(12)(12) + (5)(5) = 169
+
+2. Direct Proof
+x = 2n + 1 
+y = 2m + 1
+x + y = (2n + 1) + (2m + 1)
+x + y = 2n + 2m + 2
+x + y = 2(n + m + 1)
+Let p = n + m + 1
+x + y = 2p
+x + y is even by definition of an even integer
+
+3. Direct Proof
+x = 2n 
+y = 2n * 2n
+x + y = 2n + (2n * 2n)
+x + y = 2n + 2(2n * n)
+x + y = 2(n + (2n * n))
+Let p = (n + (2n * n))
+x + y = 2p
+x + y is even by definition of an even integer
+
+4. x = 2n + 1
+assume  x * x is even
+
+(2n + 1)( 2n + 1) is even
+(4nn + 4n + 1) is even 
+2(nn + n) + 1 is even
+Let p = (nn + n)
+2p + 1 is even
+odd is even  (Contradiction) 
