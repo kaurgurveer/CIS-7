@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Assignment8 {
+
+	public static void main(String[] args) {
+		int number;
+		int guess;
+		
+		ArrayList <Integer> primeNumbers = new ArrayList<Integer>();
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a number.");
+		number = scan.nextInt();
+		
+		System.out.println("Guess how many numbers"
+				+ " are between 0 and " + number);
+		guess = scan.nextInt();
+		
+		for(int i = 2; i <= number; i++)
+		{
+			boolean isPrime = true;
+		
+		for(int j = 2; j < i; j++)
+		{
+			if(i % j == 0)
+			{
+				isPrime = false;
+			}
+		}
+		
+		if (isPrime)
+		{
+			primeNumbers.add(i);
+		}
+		}
+		
+		if (guess == primeNumbers.size())
+		{
+			System.out.println("Correct.");
+			System.out.println("There are " + primeNumbers.size()
+					+ " prime numbers.");
+			System.out.println("Prime numbers are: " + primeNumbers.toString());
+		}
+		else
+		{
+			System.out.println("Incorrect.");
+		}
+	}
+	
+}
