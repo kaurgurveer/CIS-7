@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Assignment11 {
+
+	public static void main(String[] args) {
+		int number1;
+		int number2;
+		int gcd = 1;
+		int minNumber;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Enter a number");
+		number1 = scan.nextInt();
+		
+		System.out.println("Enter a number");
+		number2 = scan.nextInt();
+		
+		minNumber = Math.min(number1, number2);
+		
+		for(int i = 1; i <= minNumber; ++i)
+		{
+			if (number1 % i == 0 && number2 % i == 0)
+			{
+				gcd = i;
+			}
+		}
+
+		System.out.println("The greatest common divisor of " 
+		+ number1 + " and " + number2 + " is " + gcd);
+	}
+	
+}
