@@ -30,4 +30,4 @@ public class Assignment12 {
 		}
 	}
 }
-This one is faster. For brute force, it ws over 0.1 while this one remained under 0.06
+This one is faster. For brute force, it was over 0.1 while this one remained under 0.06
