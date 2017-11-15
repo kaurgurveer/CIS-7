@@ -1,0 +1,196 @@
+import java.util.Scanner;
+import java.util.Set;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+public class Assignment15 {
+
+	public static void main(String[] args) {
+		Set <String> setA = new HashSet <String>(Arrays.asList("dog", "cat", "34", "1232"));
+		Set <String> setB = new HashSet <String>(Arrays.asList("dog", "34", "twe", "321", "dog"));
+		String answer;
+		char choice;
+		
+		Scanner scan = new Scanner(System.in);
+		
+		do
+		{
+			System.out.println("Select an option.");
+			System.out.println("\n1. Add a value to set A\n2. Add a value to set B\n3. A intersect B"
+					+ "\n4. A union B\n5. A difference B\n6. B difference A\n7. Powerset of A"
+					+ "\n8. Powerset of B\n9. Ordered pair of A and B");
+			choice = scan.next().charAt(0);
+			
+			if(choice == '1')
+			{
+				System.out.println("Add a value to set A.");
+				
+				setA.add(scan.next());
+			}
+			
+			else if(choice == '2')
+			{
+				System.out.println("Add a value to set B.");
+				
+				setB.add(scan.next());
+			}
+
+			else if (choice == '3')
+			{
+			    System.out.println("Intersection of set A and B");
+			    Set <String> setC = new HashSet <String>(setA);
+			    setC.retainAll(setB);
+			    System.out.println(setC);
+			}
+			
+			else if(choice == '4')
+			{
+				System.out.println("Union of set A and B.");
+				Set <String> setD = new HashSet <String>(setA);
+				setD.addAll(setB);
+				System.out.println(setD);
+			}
+			
+			else if (choice == '5')
+			{
+				Set <String> setE = new HashSet <String>();
+				setE.addAll(setA);
+				setE.removeAll(setB);
+				System.out.println("Difference A - B: " + setE);
+			}
+			
+			else if (choice == '6')
+			{
+				Set <String> setF = new HashSet<String> ();
+				setF.addAll(setB);
+				setF.removeAll(setA);
+				System.out.println("Difference B - A: " + setF);
+			}
+			
+			else if (choice == '7')
+			{
+				System.out.println("The powerset of A:");
+				
+				Set <String> setG = new HashSet <String>();
+				setG.addAll(setA);
+		
+				String[] array = setG.toArray(new String [setG.size()]);
+				
+				int n = array.length;
+				
+				for(int i = 0; i < (1 << n); i++)
+				{
+					System.out.print("{");
+					
+					for(int j = 0; j < n; j++)
+					{
+						if((i & (1 << j)) > 0)
+						{
+							System.out.print(array[j] + " ");
+						}
+					}
+					
+					System.out.println("}");
+				}
+			}
+			
+			else if (choice == '8')
+			{
+				System.out.println("The powerset of B:");
+				
+				Set <String> setH = new HashSet <String>();
+				setH.addAll(setB);
+		
+				String[] array = setH.toArray(new String [setH.size()]);
+			
+				int n = array.length;
+				
+				for(int i = 0; i < (1 << n); i++)
+				{
+					System.out.print("{");
+					
+					for(int j = 0; j < n; j++)
+					{
+						if((i & (1 << j)) > 0)
+						{
+							System.out.print(array[j] + " ");
+						}
+					}
+					
+					System.out.println("}");
+				}
+			}
+			
+			else if (choice == '9')
+			{
+				Set <String> setI = new HashSet <String>();
+				setI.addAll(setA);
+				
+				Set <String> setJ = new HashSet <String>();
+				setJ.addAll(setB);
+				
+				String[] arrayA = setI.toArray(new String [setI.size()]);
+				String[] arrayB = setJ.toArray(new String [setJ.size()]);
+				
+				//int[] stringA = new int[arrayA.length];
+				//int[] stringB = new int[arrayB.length];
+				
+				for(String i : arrayA)
+				{
+					for(String j : arrayB)
+					{
+						list.add(new int[]{i, j});
+					}
+				}
+				
+				
+				
+				//fix
+				List<int[]> list = new ArrayList<>();
+				
+				for(int i : stringA)
+				{
+					for(int j : stringB)
+					{
+						list.add(new int[]{i, j});
+					}
+				}
+				
+				int[][] product = new int[list.size()][2];
+				int k = 0;
+				for(int[] i : list)
+				{
+					product[k++] = i;
+				}
+				
+				//Arrays.deepToString(product);
+				
+				System.out.println("Ordered Pair: " + product);
+				
+				/*
+				//sdfghjk
+				int[] product = new int[stringA.length * stringB.length];
+				int index = 0;
+				
+				for(int i : stringA)
+				{
+					for(int j : stringB)
+					{
+						product[index] = i * j;
+						index++;
+					}
+				}
+				*/
+				
+				
+			}
+			
+			System.out.println("Do you want to continue? (Enter y for yes or n for no)");
+			answer = scan.next();
+		} 
+		while(answer.charAt(0) == 'y');
+	}
+
+}
