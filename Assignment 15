@@ -136,55 +136,6 @@ public class Assignment15 {
 				
 				//int[] stringA = new int[arrayA.length];
 				//int[] stringB = new int[arrayB.length];
-				
-				for(String i : arrayA)
-				{
-					for(String j : arrayB)
-					{
-						list.add(new int[]{i, j});
-					}
-				}
-				
-				
-				
-				//fix
-				List<int[]> list = new ArrayList<>();
-				
-				for(int i : stringA)
-				{
-					for(int j : stringB)
-					{
-						list.add(new int[]{i, j});
-					}
-				}
-				
-				int[][] product = new int[list.size()][2];
-				int k = 0;
-				for(int[] i : list)
-				{
-					product[k++] = i;
-				}
-				
-				//Arrays.deepToString(product);
-				
-				System.out.println("Ordered Pair: " + product);
-				
-				/*
-				//sdfghjk
-				int[] product = new int[stringA.length * stringB.length];
-				int index = 0;
-				
-				for(int i : stringA)
-				{
-					for(int j : stringB)
-					{
-						product[index] = i * j;
-						index++;
-					}
-				}
-				*/
-				
-				
 			}
 			
 			System.out.println("Do you want to continue? (Enter y for yes or n for no)");
