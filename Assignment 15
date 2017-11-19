@@ -1,15 +1,13 @@
 import java.util.Scanner;
 import java.util.Set;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 
 public class Assignment15 {
 
 	public static void main(String[] args) {
-		Set <String> setA = new HashSet <String>(Arrays.asList("dog", "cat", "34", "1232"));
-		Set <String> setB = new HashSet <String>(Arrays.asList("dog", "34", "twe", "321", "dog"));
+		Set <String> setA = new HashSet <String>();
+		Set <String> setB = new HashSet <String>();
 		String answer;
 		char choice;
 		
@@ -28,6 +26,7 @@ public class Assignment15 {
 				System.out.println("Add a value to set A.");
 				
 				setA.add(scan.next());
+				System.out.println("Cardinality of set A: " +  setA.size());
 			}
 			
 			else if(choice == '2')
@@ -35,6 +34,7 @@ public class Assignment15 {
 				System.out.println("Add a value to set B.");
 				
 				setB.add(scan.next());
+				System.out.println("Cardinality of set B: " + setB.size());
 			}
 
 			else if (choice == '3')
@@ -134,8 +134,12 @@ public class Assignment15 {
 				String[] arrayA = setI.toArray(new String [setI.size()]);
 				String[] arrayB = setJ.toArray(new String [setJ.size()]);
 				
-				//int[] stringA = new int[arrayA.length];
-				//int[] stringB = new int[arrayB.length];
+				ArrayList<String[]> product = new ArrayList<String[]>();
+				product.add(arrayA);
+				product.add(arrayB);
+				
+				cartesianProduct(product, new String[product.size()], 0);
+				
 			}
 			
 			System.out.println("Do you want to continue? (Enter y for yes or n for no)");
@@ -144,4 +148,25 @@ public class Assignment15 {
 		while(answer.charAt(0) == 'y');
 	}
 
+	private static void cartesianProduct(ArrayList<String[]> cProduct, String[] current, int k) 
+	{
+	    if(k == cProduct.size()) 
+	    {
+	        for(int i = 0; i < k; i++) 
+	        {
+	            System.out.print(current[i] + " ");
+	        }
+	        
+	        System.out.println();   
+	    } 
+	    
+	    else 
+	    {
+	        for(int j = 0; j < cProduct.get(k).length; j++) 
+	        {
+	            current[k] = cProduct.get(k)[j];
+	            cartesianProduct(cProduct, current, k + 1);
+	        }
+	    }
+	}
 }
