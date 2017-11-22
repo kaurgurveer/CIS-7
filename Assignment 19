@@ -38,7 +38,27 @@ public class Assignment19 {
 		}
 		return(1 + countNumberOfNodes(root.leftChild) + countNumberOfNodes(root.rightChild)); 
 }	
-						
+
+	public static int depthOfTree(Node n) 
+	{
+if(n == null)
+
+{
+return 0;
+}
+
+int leftDepth = depthOfTree(n.leftChild);
+int rightDepth = depthOfTree(n.rightChild);
+if(leftDepth > rightDepth)
+{
+return (1 + leftDepth);
+} 
+else
+{
+return (1 + rightDepth);
+}
+}
+
 	public void preorderTraversal(Node n)
 	{
 		if(n == null)
