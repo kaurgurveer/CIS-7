@@ -1,0 +1,97 @@
+import java.util.Scanner;
+
+class Node
+{
+	int key;
+	//String name;
+	Node leftChild;
+	Node rightChild;
+	
+	Node(int key)
+	{
+		this.key = key;
+		leftChild = null;
+		rightChild = null;
+	}
+	
+}
+
+public class Assignment19 {
+
+	Node root;
+	
+	Assignment19(int key)
+	{
+		root = new Node(key);
+	}
+	
+	Assignment19()
+	{
+		root = null;
+	}
+	
+	public void preorderTraversal(Node n)
+	{
+		if(n == null)
+		{
+			return;
+		}
+		
+		System.out.print(n.key + " ");
+		preorderTraversal(n.leftChild);
+		preorderTraversal(n.rightChild);
+	}
+	
+	public void inorderTraversal(Node n)
+	{
+		if(n == null)
+		{
+			return;
+		}
+		
+			inorderTraversal(n.leftChild);
+			System.out.print(n.key + " ");
+			inorderTraversal(n.rightChild);
+	}
+	
+	public void postorderTraversal(Node n)
+	{
+		if(n == null)
+		{
+			return;
+		}
+		
+		postorderTraversal(n.leftChild);
+		postorderTraversal(n.rightChild);
+		System.out.print(n.key + " ");
+	}
+	
+	public static void main(String[] args) {
+		Assignment19 tree = new Assignment19();
+		
+		Scanner scan = new Scanner(System.in);
+		int left;
+		int right;
+		
+		tree.root = new Node(1);
+		
+		System.out.println("Enter the name of a left child (Enter a number).");
+		left = scan.nextInt();
+		
+		System.out.println("Enter the name of a right child (Enter a number).");
+		right = scan.nextInt();
+		
+		tree.root.leftChild = new Node(left);
+		tree.root.rightChild = new Node(right);
+
+		System.out.println("Preorder Traversal: ");
+		tree.preorderTraversal(tree.root);
+		
+		System.out.println("\nInorder Traversal: ");
+		tree.inorderTraversal(tree.root);
+		
+		System.out.println("\nPostorder Traversal: ");
+		tree.postorderTraversal(tree.root);
+	}
+
+}
