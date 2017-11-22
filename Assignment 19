@@ -30,6 +30,15 @@ public class Assignment19 {
 		root = null;
 	}
 	
+	public static int countNumberOfNodes(Node root)
+	{
+		if(root == null)		
+		{
+		return;
+		}
+		return(1 + countNumberOfNodes(root.leftChild) + countNumberOfNodes(root.rightChild)); 
+}	
+						
 	public void preorderTraversal(Node n)
 	{
 		if(n == null)
