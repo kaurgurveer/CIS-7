@@ -2,27 +2,25 @@ import java.util.Scanner;
 
 class Node
 {
-	int key;
-	//String name;
+	String name;
 	Node leftChild;
 	Node rightChild;
 	
-	Node(int key)
+	Node(String name)
 	{
-		this.key = key;
+		this.name = name;
 		leftChild = null;
 		rightChild = null;
 	}
-	
 }
 
 public class Assignment19 {
 
 	Node root;
 	
-	Assignment19(int key)
+	Assignment19(String name)
 	{
-		root = new Node(key);
+		root = new Node(name);
 	}
 	
 	Assignment19()
@@ -34,31 +32,69 @@ public class Assignment19 {
 	{
 		if(root == null)		
 		{
-		return;
+			return 0;
 		}
+		
 		return(1 + countNumberOfNodes(root.leftChild) + countNumberOfNodes(root.rightChild)); 
-}	
+	}	
 
 	public static int depthOfTree(Node n) 
 	{
-if(n == null)
+		if(n == null)
 
-{
-return 0;
-}
+		{
+			return 0;
+		}
 
-int leftDepth = depthOfTree(n.leftChild);
-int rightDepth = depthOfTree(n.rightChild);
-if(leftDepth > rightDepth)
-{
-return (1 + leftDepth);
-} 
-else
-{
-return (1 + rightDepth);
-}
-}
-
+		int leftDepth = depthOfTree(n.leftChild);
+		int rightDepth = depthOfTree(n.rightChild);
+		
+		if(leftDepth > rightDepth)
+		{
+			return (1 + leftDepth);
+		} 
+		
+		else
+		{
+			return (1 + rightDepth);
+		}
+	}
+	
+	public static boolean isTreeFull(Node n)
+	{
+		if(n == null)
+		{
+			return true;
+		}
+		
+		if(n.leftChild == null && n.rightChild == null)
+		{
+			return true;
+		}
+		
+		if((n.leftChild != null) && (n.rightChild != null))
+		{
+			return (isTreeFull(n.leftChild) && isTreeFull(n.rightChild));
+		}
+		
+		return false;
+	}
+	
+	public static boolean isTreeComplete(Node root, int index, int numberOfNodes)
+	{
+		if(root == null)
+		{
+			return true;
+		}
+		
+		if(index >= numberOfNodes)
+		{
+			return false;
+		}
+		
+		return (isTreeComplete(root.leftChild, 2 * index + 1, numberOfNodes) && isTreeComplete(root.rightChild, 2 * index + 2, numberOfNodes));
+	}
+	
 	public void preorderTraversal(Node n)
 	{
 		if(n == null)
@@ -66,7 +102,7 @@ return (1 + rightDepth);
 			return;
 		}
 		
-		System.out.print(n.key + " ");
+		System.out.print(n.name + " ");
 		preorderTraversal(n.leftChild);
 		preorderTraversal(n.rightChild);
 	}
@@ -79,7 +115,7 @@ return (1 + rightDepth);
 		}
 		
 			inorderTraversal(n.leftChild);
-			System.out.print(n.key + " ");
+			System.out.print(n.name + " ");
 			inorderTraversal(n.rightChild);
 	}
 	
@@ -92,35 +128,81 @@ return (1 + rightDepth);
 		
 		postorderTraversal(n.leftChild);
 		postorderTraversal(n.rightChild);
-		System.out.print(n.key + " ");
+		System.out.print(n.name + " ");
 	}
 	
 	public static void main(String[] args) {
+		String left;
+		String right;
+		String leftLeft;
+		String leftRight;
+		String rightRight;
+		String rightLeft;
+		int index = 0;
+		
 		Assignment19 tree = new Assignment19();
 		
+		int nodeCount= tree.countNumberOfNodes(tree.root);
+		
 		Scanner scan = new Scanner(System.in);
-		int left;
-		int right;
 		
-		tree.root = new Node(1);
+		tree.root = new Node("A");
 		
-		System.out.println("Enter the name of a left child (Enter a number).");
-		left = scan.nextInt();
+		System.out.println("Enter the name of a left child.");
+		left = scan.nextLine();
 		
-		System.out.println("Enter the name of a right child (Enter a number).");
-		right = scan.nextInt();
+		System.out.println("Enter the name of a right child.");
+		right = scan.nextLine();
 		
 		tree.root.leftChild = new Node(left);
 		tree.root.rightChild = new Node(right);
+		
+		System.out.println("Enter name to add a child to " + left);
+		leftLeft = scan.next();
+		tree.root.leftChild.leftChild = new Node(leftLeft);
 
-		System.out.println("Preorder Traversal: ");
+		System.out.println("Enter name to add a child to the right of" + left);
+		leftRight = scan.next();
+		tree.root.leftChild.rightChild = new Node(leftRight);
+		
+		System.out.println("Enter name to add a child to " + right);
+		rightLeft = scan.next();
+		tree.root.rightChild.leftChild = new Node(rightLeft);
+		
+		System.out.println("Enter name to add a child to the right of" + right);
+		rightRight = scan.next();
+		tree.root.rightChild.rightChild = new Node(rightRight);
+		
+		System.out.println("\nNumber of nodes: " + countNumberOfNodes(tree.root));
+		
+		System.out.println("\nDepth of tree: " + depthOfTree(tree.root));
+		
+		if(tree.isTreeFull(tree.root))
+		{
+			System.out.println("\nThe tree is full");
+		}
+		
+		else
+		{
+			System.out.println("\nThe tree is not full");
+		}
+		
+		if(tree.isTreeComplete(tree.root, index, nodeCount))
+		{
+			System.out.println("\nThe tree is complete.");
+		}
+		else
+		{
+			System.out.println("\nThe tree is not complete.");
+		}
+
+		System.out.println("\nPreorder Traversal: ");
 		tree.preorderTraversal(tree.root);
 		
-		System.out.println("\nInorder Traversal: ");
+		System.out.println("\n\nInorder Traversal: ");
 		tree.inorderTraversal(tree.root);
 		
-		System.out.println("\nPostorder Traversal: ");
+		System.out.println("\n\nPostorder Traversal: ");
 		tree.postorderTraversal(tree.root);
 	}
-
 }
