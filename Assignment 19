@@ -30,7 +30,7 @@ public class Assignment19 {
 		root = null;
 	}
 	
-	  static void insert(Node n, String name)
+	public static void insert(Node n, String name)
 	    {
 	        Queue<Node> q = new LinkedList<Node>();
 	        q.add(n);
