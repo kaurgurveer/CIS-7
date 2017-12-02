@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.Queue;
 
 class Node
 {
@@ -27,6 +29,29 @@ public class Assignment19 {
 	{
 		root = null;
 	}
+	
+	  static void insert(Node n, String name)
+	    {
+	        Queue<Node> q = new LinkedList<Node>();
+	        q.add(n);
+	        
+	        while (!q.isEmpty()) {
+	            n = q.peek();
+	            q.remove();
+	      
+	            if (n.leftChild == null) {
+	                n.leftChild = new Node(name);
+	                break;
+	            } else
+	                q.add(n.leftChild);
+	      
+	            if (n.rightChild == null) {
+	                n.rightChild = new Node(name);
+	                break;
+	            } else
+	                q.add(n.rightChild);
+	        }
+	    }
 	
 	public static int countNumberOfNodes(Node root)
 	{
@@ -132,12 +157,8 @@ public class Assignment19 {
 	}
 	
 	public static void main(String[] args) {
-		String left;
-		String right;
-		String leftLeft;
-		String leftRight;
-		String rightRight;
-		String rightLeft;
+		String node;
+		char answer;
 		int index = 0;
 		
 		Assignment19 tree = new Assignment19();
@@ -148,30 +169,19 @@ public class Assignment19 {
 		
 		tree.root = new Node("A");
 		
-		System.out.println("Enter the name of a left child.");
-		left = scan.nextLine();
+		System.out.println("Do you want to enter nodes (Enter q to stop)");
+		answer = scan.next().charAt(0);
 		
-		System.out.println("Enter the name of a right child.");
-		right = scan.nextLine();
-		
-		tree.root.leftChild = new Node(left);
-		tree.root.rightChild = new Node(right);
-		
-		System.out.println("Enter name to add a child to " + left);
-		leftLeft = scan.next();
-		tree.root.leftChild.leftChild = new Node(leftLeft);
-
-		System.out.println("Enter name to add a child to the right of" + left);
-		leftRight = scan.next();
-		tree.root.leftChild.rightChild = new Node(leftRight);
-		
-		System.out.println("Enter name to add a child to " + right);
-		rightLeft = scan.next();
-		tree.root.rightChild.leftChild = new Node(rightLeft);
-		
-		System.out.println("Enter name to add a child to the right of" + right);
-		rightRight = scan.next();
-		tree.root.rightChild.rightChild = new Node(rightRight);
+		while(answer != 'q')
+		{
+			System.out.println("Enter node.");
+			node = scan.next();
+			
+			insert(tree.root, node);
+			
+			System.out.println("Do you want to enter nodes (Enter q to stop)");
+			answer = scan.next().charAt(0);
+		}
 		
 		System.out.println("\nNumber of nodes: " + countNumberOfNodes(tree.root));
 		
